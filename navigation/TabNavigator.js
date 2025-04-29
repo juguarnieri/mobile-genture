@@ -1,17 +1,18 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import MarcelloNavigator from "./JuliaNavigator";
+import JuliaNavigator from "./JuliaNavigator";
 import GuarnieriNavigator from "./GuarnieriNavigator";
-const Tab = createBottomTabNavigator();
+import User1Navigator from "./User1Navigator"; 
 
+const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
   return (
     <Tab.Navigator
-      initialRouteName="Django"
+      initialRouteName="Salsicha" // Altere para uma rota existente
       screenOptions={{
-        headerShown: false, 
+        headerShown: false,
         tabBarShowLabel: true,
         tabBarStyle: {
           backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -31,10 +32,9 @@ export default function TabNavigator() {
         tabBarInactiveTintColor: "black",
       }}
     >
-
       <Tab.Screen
         name="Salsicha"
-        component={MarcelloNavigator}
+        component={JuliaNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="rocket" color={color} size={size} />
@@ -48,6 +48,17 @@ export default function TabNavigator() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="dice" color={color} size={size} />
+          ),
+        }}
+      />
+
+      {/* Nova aba User2 */}
+      <Tab.Screen
+        name="User2"
+        component={User1Navigator}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person" color={color} size={size} />
           ),
         }}
       />
